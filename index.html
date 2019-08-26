@@ -37,11 +37,19 @@ html, body {
 header {
   /* If you're touching the following, be sure to check you don't break IE11 */
   background:
-    left 95px / 130% 50% no-repeat url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%221440%22%20height%3D%22200%22%20%3E%3Cpath%20fill%3D%22white%22%20d%3D%22M0%2C41.96c413.6-98.33%2C1111.35-5.78%2C1440.19%2C92.54v185.08H0V41.96z%22%2F%3E%3C%2Fsvg%3E"),
-    right -40px top -20px / 160px no-repeat url(trees.svg),
+    left 85px / 130% 50% no-repeat url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%221440%22%20height%3D%22200%22%20%3E%3Cpath%20fill%3D%22white%22%20d%3D%22M0%2C41.96c413.6-98.33%2C1111.35-5.78%2C1440.19%2C92.54v185.08H0V41.96z%22%2F%3E%3C%2Fsvg%3E"),
+    right -30px top -20px / 130px 130px no-repeat url(trees.svg),
     linear-gradient(#9EC33E 10%, #4A7234 110%);
   padding-top: 30px;
-  padding-bottom: 60px;
+  padding-bottom: 50px;
+}
+
+@media (min-width: 360px) {
+  header {
+    background-position: left 95px, right -40px top -20px, 0px 0px;
+    background-size: 130% 50%, 160px auto, auto;
+    padding-bottom: 60px;
+  }
 }
 
 @media (min-width: 640px) {
@@ -66,8 +74,15 @@ header {
   max-width: 450px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media (min-width: 360px) {
+  .constrain-width {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
 }
 
 @media (min-width: 640px) {
@@ -87,9 +102,16 @@ header {
 }
 
 header > .logo-row > .logo {
-  width: 180px;
+  width: 150px;
   /* This is needed for IE */
-  height: 39px;
+  /* height: 32.5px; */
+}
+
+@media (min-width: 360px) {
+  header > .logo-row > .logo {
+    width: 180px;
+    height: 39px;
+  }
 }
 
 @media (min-width: 640px) {
@@ -147,7 +169,7 @@ h1, h2 {
 }
 
 h1 {
-  font-size: 34px;
+  font-size: 30px;
   color: #589846;
   line-height: 1.4;
 }
@@ -162,6 +184,12 @@ h1 strong, h2 strong {
 
 h1 strong {
   color: #9EC33E;
+}
+
+@media (min-width: 360px) {
+  h1 {
+    font-size: 34px;
+  }
 }
 
 @media (min-width: 640px) {
