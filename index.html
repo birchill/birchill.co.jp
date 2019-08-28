@@ -47,7 +47,7 @@
   font-weight: 400;
 }
 
-html, body {
+html, body, select {
   margin: 0;
   background: white;
   color: hsl(106.8, 17%, 16.1%);
@@ -57,13 +57,13 @@ html, body {
 }
 
 @media (min-width: 640px) {
-  html, body {
+  html, body, select {
     font-size: 18px;
   }
 }
 
 @media (min-width: 1024px) {
-  html, body {
+  html, body, select {
     font-size: 19px;
   }
 }
@@ -407,12 +407,22 @@ footer .company-info address > a {
     margin-top: 80px;
     padding-top: 80px;
   }
+}
 
-  footer .company-info [role=grid] {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    max-height: 12em;
+/*
+   IE seems to have a bit of trouble with flexbox. I'm not sure what exactly is
+   wrong, but fortunately(?) it also doesn't support @supports so the following
+   will effectively mean that only UAs that do flexbox properly actually attempt
+   to render the column layout defined below.
+*/
+@supports (display: flex) {
+  @media (min-width: 640px) {
+    footer .company-info [role=grid] {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      max-height: 12em;
+    }
   }
 }
 
@@ -433,10 +443,119 @@ footer .company-info address > a {
 }
 
 /* Just another random breakpoint for fun */
-@media (min-width: 1300px) {
-  footer .company-info [role=grid] {
-    max-height: 10em;
+@supports (display: flex) {
+  @media (min-width: 1300px) {
+    footer .company-info [role=grid] {
+      max-height: 10em;
+    }
   }
+}
+
+nav {
+  /* For IE */
+  display: block;
+}
+
+.lang-selector {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+}
+
+@media (min-width: 640px) {
+  .lang-selector {
+    justify-content: center;
+  }
+}
+
+.lang-selector > .label {
+  display: flex;
+  align-items: center;
+  margin-right: 5px;
+  color: #ccc;
+}
+
+.lang-selector > .label > .text-label {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .lang-selector > .label {
+    display: flex;
+    align-items: center;
+    margin-right: 1em;
+  }
+
+  .lang-selector > .label > .text-label {
+    display: inline;
+  }
+}
+
+.lang-selector .lang-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  color: #aaa;
+}
+
+@media (min-width: 640px) {
+  .lang-selector .lang-icon {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.lang-selector > #lang {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  color: #ccc;
+  background: transparent;
+  line-height: 1.3;
+  padding: 5px 10px;
+  padding-right: 36px;
+  border: 1.5px solid #555;
+  border-radius: 5px;
+  font-weight: 400;
+  font-family: "noto-sans", sans-serif;
+  margin: 0;
+  background-image:
+    url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%20width%3D%2216%22%20height%3D%2216%22%3E%3Cg%20fill%3D%22%23555%22%3E%3Cpath%20d%3D%22M15.11%2C5.71l-6.5-5c-0.36-0.28-0.86-0.28-1.22%2C0l-6.5%2C5C0.55%2C5.97%2C0.42%2C6.42%2C0.55%2C6.82C0.69%2C7.23%2C1.07%2C7.5%2C1.5%2C7.5h13c0.43%2C0%2C0.81-0.27%2C0.95-0.68C15.58%2C6.42%2C15.45%2C5.97%2C15.11%2C5.71z%22%2F%3E%3Cpath%20d%3D%22M15.45%2C9.18C15.31%2C8.77%2C14.93%2C8.5%2C14.5%2C8.5h-13c-0.43%2C0-0.81%2C0.27-0.95%2C0.68s0%2C0.85%2C0.34%2C1.12l6.5%2C5C7.57%2C15.43%2C7.79%2C15.5%2C8%2C15.5s0.43-0.07%2C0.61-0.21l6.5-5C15.45%2C10.03%2C15.58%2C9.58%2C15.45%2C9.18z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px top 50%;
+  background-size: 16px auto;
+  cursor: pointer;
+}
+
+@media (min-width: 640px) {
+  .lang-selector > #lang {
+    margin-top: 0px;
+  }
+}
+
+.lang-selector #lang::-ms-expand {
+  display: none;
+}
+
+.lang-selector #lang:hover {
+  border-color: #aaa;
+  color: white;
+  background-image:
+    url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%20width%3D%2216%22%20height%3D%2216%22%3E%3Cg%20fill%3D%22%23aaa%22%3E%3Cpath%20d%3D%22M15.11%2C5.71l-6.5-5c-0.36-0.28-0.86-0.28-1.22%2C0l-6.5%2C5C0.55%2C5.97%2C0.42%2C6.42%2C0.55%2C6.82C0.69%2C7.23%2C1.07%2C7.5%2C1.5%2C7.5h13c0.43%2C0%2C0.81-0.27%2C0.95-0.68C15.58%2C6.42%2C15.45%2C5.97%2C15.11%2C5.71z%22%2F%3E%3Cpath%20d%3D%22M15.45%2C9.18C15.31%2C8.77%2C14.93%2C8.5%2C14.5%2C8.5h-13c-0.43%2C0-0.81%2C0.27-0.95%2C0.68s0%2C0.85%2C0.34%2C1.12l6.5%2C5C7.57%2C15.43%2C7.79%2C15.5%2C8%2C15.5s0.43-0.07%2C0.61-0.21l6.5-5C15.45%2C10.03%2C15.58%2C9.58%2C15.45%2C9.18z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+}
+
+.lang-selector #lang:focus {
+  border-color: #ccc;
+  color: white;
+  outline: none;
+  background-image:
+    url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%20width%3D%2216%22%20height%3D%2216%22%3E%3Cg%20fill%3D%22%23ccc%22%3E%3Cpath%20d%3D%22M15.11%2C5.71l-6.5-5c-0.36-0.28-0.86-0.28-1.22%2C0l-6.5%2C5C0.55%2C5.97%2C0.42%2C6.42%2C0.55%2C6.82C0.69%2C7.23%2C1.07%2C7.5%2C1.5%2C7.5h13c0.43%2C0%2C0.81-0.27%2C0.95-0.68C15.58%2C6.42%2C15.45%2C5.97%2C15.11%2C5.71z%22%2F%3E%3Cpath%20d%3D%22M15.45%2C9.18C15.31%2C8.77%2C14.93%2C8.5%2C14.5%2C8.5h-13c-0.43%2C0-0.81%2C0.27-0.95%2C0.68s0%2C0.85%2C0.34%2C1.12l6.5%2C5C7.57%2C15.43%2C7.79%2C15.5%2C8%2C15.5s0.43-0.07%2C0.61-0.21l6.5-5C15.45%2C10.03%2C15.58%2C9.58%2C15.45%2C9.18z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+}
+
+.lang-selector #lang option {
+  font-weight: normal;
+  /* The following seems to be needed for IE */
+  color: hsl(106.8, 17%, 16.1%);
 }
 
 </style>
@@ -547,20 +666,25 @@ footer .company-info address > a {
       <div role=row>
         <div role=gridcell class=label id=contact-label>Contact</div>
         <div role=gridcell class=value aria-labelledby=contact-label><a
-            href=mailto:info@birchill.co.jp>info@birchill.co.jp</a>
+            href=mailto:info@birchill.co.jp>info@birchill.co.jp</a></div>
       </div>
     </div>
   </div>
 
-  <!--
-  <nav>
-    <label for=lang-selector>Language</label>
-    <select name=lang-selector id=lang-selector>
+  <nav class="constrain-width lang-selector">
+    <label for=lang class=label>
+      <svg viewBox="0 0 24 24" class=lang-icon fill=currentColor
+        role=presentation aria-label="Language">
+        <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 19c-.8 0-1.8-1.5-2.4-4h4.8c-.6 2.5-1.6 4-2.4 4zm-2.7-5c-.1-1-.3-2.2-.3-3.5h6c0 1.3-.2 2.5-.3 3.5H9.3zM3 12.5h5c0 1.2.1 2.4.3 3.5H4a9 9 0 0 1-.9-3.5zM12 3c.8 0 1.8 1.5 2.4 4H9.6c.6-2.5 1.6-4 2.4-4zm2.7 5c.1 1 .3 2.2.3 3.5H9c0-1.3.2-2.5.3-3.5h5.4zM8 11.5H3A9 9 0 0 1 4 8h4.3c-.2 1-.3 2.3-.3 3.5zm8 1h5a9 9 0 0 1-1 3.5h-4.3c.2-1 .3-2.3.3-3.5zm0-1c0-1.2-.1-2.4-.3-3.5H20a9 9 0 0 1 .9 3.5h-5zM19.5 7h-4c-.4-1.6-1-3-1.6-3.8A9 9 0 0 1 19.5 7zM10 3.2c-.7.9-1.2 2.2-1.6 3.8h-4a9 9 0 0 1 5.6-3.8zM4.5 17h4c.4 1.6 1 3 1.6 3.8A9 9 0 0 1 4.5 17zm9.4 3.8c.7-.9 1.2-2.2 1.6-3.8h4a9 9 0 0 1-5.6 3.8z"/>
+      </svg>
+      <span class=text-label>Language</span>
+    </label>
+    <select name=lang id=lang>
       <option value=en selected>English</option>
       <option value=ja lang=ja>日本語</option>
     </select>
   </nav>
-  -->
+
 </footer>
 
 </html>
