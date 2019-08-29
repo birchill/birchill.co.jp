@@ -1,0 +1,718 @@
+<!doctype html>
+<html lang=en>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width, initial-scale=1">
+<title>Birchill</title>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/svg+xml" sizes="any 512x512" href="/favicon.svg">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#3c7536">
+<meta name="apple-mobile-web-app-title" content="10sai">
+<meta name="theme-color" content="#3c7536">
+
+<style>
+@import url("https://p.typekit.net/p.css?s=1&k=tto7hyv&ht=tk&f=9727.9728&a=25468680&app=typekit&e=css");
+
+@font-face {
+  font-family: co-headline;
+  src: url("https://use.typekit.net/af/7c5440/00000000000000003b9b3178/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff2"),url("https://use.typekit.net/af/7c5440/00000000000000003b9b3178/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff"),url("https://use.typekit.net/af/7c5440/00000000000000003b9b3178/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: co-headline;
+  src: url("https://use.typekit.net/af/2dc87e/00000000000000003b9b3177/27/l?subset_id=2&fvd=n3&v=3") format("woff2"),url("https://use.typekit.net/af/2dc87e/00000000000000003b9b3177/27/d?subset_id=2&fvd=n3&v=3") format("woff"),url("https://use.typekit.net/af/2dc87e/00000000000000003b9b3177/27/a?subset_id=2&fvd=n3&v=3") format("opentype");
+  font-style: normal;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: noto-sans;
+  src: url("https://use.typekit.net/af/d9dfc1/00000000000000003b9b2578/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n3&v=3") format("woff2"),url("https://use.typekit.net/af/d9dfc1/00000000000000003b9b2578/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n3&v=3") format("woff"),url("https://use.typekit.net/af/d9dfc1/00000000000000003b9b2578/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n3&v=3") format("opentype");
+  font-style: normal;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: noto-sans;
+  src: url("https://use.typekit.net/af/5d1912/00000000000000003b9b257a/27/l?subset_id=2&fvd=n4&v=3") format("woff2"),url("https://use.typekit.net/af/5d1912/00000000000000003b9b257a/27/d?subset_id=2&fvd=n4&v=3") format("woff"),url("https://use.typekit.net/af/5d1912/00000000000000003b9b257a/27/a?subset_id=2&fvd=n4&v=3") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+}
+
+html, body {
+  margin: 0;
+  background: white;
+  color: hsl(106.8, 17%, 16.1%);
+}
+
+html, body, select, input {
+  font-family: noto-sans, sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+}
+
+@media (min-width: 640px) {
+  html, body, select, input {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 1024px) {
+  html, body, select, input {
+    font-size: 19px;
+  }
+}
+
+header {
+  /* If you're touching the following, be sure to check you don't break IE11 */
+  background:
+    left 85px / 130% 50% no-repeat url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%221440%22%20height%3D%22200%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20fill%3D%22white%22%20d%3D%22M0%2C41.96c413.6-98.33%2C1111.35-5.78%2C1440.19%2C92.54v185.08H0V41.96z%22%2F%3E%3C%2Fsvg%3E"),
+    right -30px top -20px / 130px 130px no-repeat url(/trees.svg),
+    linear-gradient(#9EC33E 10%, #4A7234 110%);
+  padding-top: 30px;
+  box-sizing: border-box;
+  height: 115px;
+}
+
+@media (min-width: 360px) {
+  header {
+    background-position: left 95px, right -40px top -20px, 0px 0px;
+    background-size: 130% 50%, 160px auto, auto;
+    height: 129px;
+  }
+}
+
+@media (min-width: 640px) {
+  header {
+    background-position: left 170px, right -60px top -10px, 0px 0px;
+    background-size: 125% 50%, 250px auto, auto;
+    padding-top: 60px;
+    height: 290px;
+  }
+}
+
+@media (min-width: 1024px) {
+  header {
+    background-position: left 267px, right -129px top -60px, 0px 0px;
+    background-size: 105% 50%, 510px auto, auto;
+    padding-top: 105px;
+    height: 390px;
+  }
+}
+
+.constrain-width {
+  max-width: 450px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media (min-width: 360px) {
+  .constrain-width {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+@media (min-width: 640px) {
+  .constrain-width {
+    max-width: 700px;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .constrain-width {
+    max-width: 1100px;
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+}
+
+header > .logo-row > .logo {
+  width: 150px;
+  /* This is needed for IE */
+  height: 32.5px;
+}
+
+@media (min-width: 360px) {
+  header > .logo-row > .logo {
+    width: 180px;
+    height: 39px;
+  }
+}
+
+@media (min-width: 640px) {
+  header > .logo-row > .logo {
+    width: 300px;
+    height: 64.5px;
+  }
+}
+
+@media (min-width: 1024px) {
+  header > .logo-row > .logo {
+    width: 340px;
+    height: 73px;
+  }
+}
+
+main {
+  /* For IE */
+  display: block;
+  margin-top: 20px;
+}
+
+@media (min-width: 640px) {
+  main {
+    margin-top: -80px;
+  }
+}
+
+@media (min-width: 1024px) {
+  main {
+    margin-top: -70px;
+  }
+}
+
+h1, h2 {
+  font-family: "co-headline", sans-serif;
+  font-weight: 300;
+}
+
+h1 {
+  font-size: 30px;
+  color: #589846;
+  line-height: 1.2;
+}
+
+h1 > .line {
+  display: block
+}
+
+h1 strong, h2 strong {
+  font-weight: 400;
+}
+
+h1 strong {
+  color: #9ec33e;
+}
+
+@media (min-width: 360px) {
+  h1 {
+    font-size: 34px;
+  }
+}
+
+@media (min-width: 640px) {
+  h1 {
+    line-height: 1.1;
+    font-size: 50px;
+  }
+}
+
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 70px;
+    line-height: 1.2;
+    letter-spacing: -1.5px;
+  }
+}
+
+h2 {
+  color: #589846;
+  font-size: 25px;
+}
+
+@media (min-width: 640px) {
+  h2 {
+    font-size: 35px;
+  }
+}
+
+@media (min-width: 1024px) {
+  h2 {
+    font-size: 40px;
+  }
+}
+
+.highlight {
+  margin-top: 40px;
+  margin-bottom: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background: hsl(106.8, 36.9%, 36%);
+}
+
+.highlight hr {
+  border-width: 2px 0 0 0;
+  border-color: hsl(76.7, 72.6%, 52.4%);
+  border-style: dotted;
+}
+
+.highlight .activity {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  color: white;
+  line-height: 1.4;
+}
+
+.highlight h2 {
+  color: hsl(76.7, 72.6%, 52.4%);
+}
+
+.activity .icon {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  position: absolute;
+}
+
+.activity .icon + h2 {
+  margin-left: 50px;
+}
+
+.activity p {
+  margin-top: 0px;
+  margin-block-start: 0px;
+}
+
+.highlight .activity .icon {
+  fill: hsl(76.7, 72.6%, 52.4%);
+}
+
+@media (min-width: 640px) {
+  .activity .icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .activity .icon + h2 {
+    margin-left: 60px;
+  }
+
+  .activity h2 {
+    margin-bottom: .5em;
+  }
+}
+
+@media (min-width: 1024px) {
+  .activities {
+    display: flex;
+  }
+
+  .activities > hr {
+    flex: 0;
+    margin-left: 50px;
+    margin-right: 50px;
+    border-top-width: 0px;
+    border-left-width: 2px;
+  }
+
+  .highlight .activity {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .activity .icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .activity .icon + h2 {
+    margin-left: 0px;
+  }
+
+  .activity h2 {
+    margin-bottom: .5em;
+  }
+
+  .highlight {
+    margin-top: 90px;
+    position: relative;
+  }
+
+  .highlight .activity .icon {
+    position: absolute;
+    background: white;
+    border-radius: 35px;
+    top: -25px;
+    padding: 5px;
+    padding-left: 7px;
+    fill: #9ec33e;
+  }
+}
+
+.about {
+  margin-top: 50px;
+}
+
+footer {
+  margin-top: 50px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background:
+    right 5px top -100px / 80px 140% no-repeat url(/green-trees.svg),
+    hsl(106.8, 17%, 16.1%);
+  color: white;
+  mask:
+    0px 0px / 100% 100%
+    url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201440.19%20319.58%22%20preserveAspectRatio%3D%22xMidYMin%20meet%22%3E%3Cpath%20d%3D%22M0%2C41.96c413.6-98.33%2C1111.35-5.78%2C1440.19%2C92.54v185.08H0V41.96z%22%2F%3E%3Crect%20width%3D%22100%25%22%20height%3D%22800%25%22%20y%3D%22140%22%2F%3E%3C%2Fsvg%3E")
+    no-repeat;
+  -webkit-mask:
+    0px 0px / 100% 100%
+    url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201440.19%20319.58%22%20preserveAspectRatio%3D%22xMidYMin%20meet%22%3E%3Cpath%20d%3D%22M0%2C41.96c413.6-98.33%2C1111.35-5.78%2C1440.19%2C92.54v185.08H0V41.96z%22%2F%3E%3Crect%20width%3D%22100%25%22%20height%3D%22800%25%22%20y%3D%22140%22%2F%3E%3C%2Fsvg%3E")
+    no-repeat;
+}
+
+footer a {
+  text-decoration: none;
+  color: hsl(76.7, 72.6%, 52.4%);
+}
+
+footer .company-info [role=row] {
+  margin-top: 10px;
+}
+
+footer .company-info [role=gridcell].label {
+  color: #ccc;
+}
+
+footer .company-info [role=gridcell].value {
+  font-weight: 400;
+}
+
+footer .company-info address {
+  /* Drop browser styles */
+  font-style: normal;
+}
+
+footer .company-info address .address-line {
+  display: block;
+}
+
+/* Make the fact that the address is clickable less obvious... because */
+footer .company-info address > a {
+  color: white;
+}
+
+@media (min-width: 640px) {
+  footer {
+    margin-top: 80px;
+    padding-top: 80px;
+  }
+}
+
+/*
+   IE seems to have a bit of trouble with flexbox. I'm not sure what exactly is
+   wrong, but fortunately(?) it also doesn't support @supports so the following
+   will effectively mean that only UAs that do flexbox properly actually attempt
+   to render the column layout defined below.
+*/
+@supports (display: flex) {
+  @media (min-width: 640px) {
+    footer .company-info [role=grid] {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      max-height: 12em;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  footer {
+    margin-top: 100px;
+    padding-top: 80px;
+    background-position: right 30px top -100px, 0 0;
+    background-size: 140px 150%, auto auto;
+
+    /* Set preserveAspectRatio to none on the mask image so once we get beyond
+       1440 pixels the image doesn't get cropped. */
+    mask-image:
+      url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201440.19%20319.58%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20d%3D%22M0%2C41.96c413.6-98.33%2C1111.35-5.78%2C1440.19%2C92.54v185.08H0V41.96z%22%2F%3E%3Crect%20width%3D%22100%25%22%20height%3D%22800%25%22%20y%3D%22140%22%2F%3E%3C%2Fsvg%3E");
+    -webkit-mask-image:
+      url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201440.19%20319.58%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20d%3D%22M0%2C41.96c413.6-98.33%2C1111.35-5.78%2C1440.19%2C92.54v185.08H0V41.96z%22%2F%3E%3Crect%20width%3D%22100%25%22%20height%3D%22800%25%22%20y%3D%22140%22%2F%3E%3C%2Fsvg%3E");
+  }
+}
+
+/* Just another random breakpoint for fun */
+@supports (display: flex) {
+  @media (min-width: 1300px) {
+    footer .company-info [role=grid] {
+      max-height: 10em;
+    }
+  }
+}
+
+nav {
+  /* For IE */
+  display: block;
+}
+
+.lang-selector {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+}
+
+@media (min-width: 640px) {
+  .lang-selector {
+    justify-content: center;
+  }
+}
+
+.lang-selector > .label {
+  display: flex;
+  align-items: center;
+  margin-right: 5px;
+  color: #ccc;
+}
+
+.lang-selector > .label > .text-label {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .lang-selector > .label {
+    display: flex;
+    align-items: center;
+    margin-right: 1em;
+  }
+
+  .lang-selector > .label > .text-label {
+    display: inline;
+  }
+}
+
+.lang-selector .lang-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  color: #aaa;
+}
+
+@media (min-width: 640px) {
+  .lang-selector .lang-icon {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.lang-selector > #lang {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  color: #ccc;
+  background: transparent;
+  line-height: 1.3;
+  padding: 5px 10px;
+  padding-right: 36px;
+  border: 1.5px solid #555;
+  border-radius: 5px;
+  font-weight: 400;
+  margin: 0;
+  background-image:
+    url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%20width%3D%2216%22%20height%3D%2216%22%3E%3Cg%20fill%3D%22%23555%22%3E%3Cpath%20d%3D%22M15.11%2C5.71l-6.5-5c-0.36-0.28-0.86-0.28-1.22%2C0l-6.5%2C5C0.55%2C5.97%2C0.42%2C6.42%2C0.55%2C6.82C0.69%2C7.23%2C1.07%2C7.5%2C1.5%2C7.5h13c0.43%2C0%2C0.81-0.27%2C0.95-0.68C15.58%2C6.42%2C15.45%2C5.97%2C15.11%2C5.71z%22%2F%3E%3Cpath%20d%3D%22M15.45%2C9.18C15.31%2C8.77%2C14.93%2C8.5%2C14.5%2C8.5h-13c-0.43%2C0-0.81%2C0.27-0.95%2C0.68s0%2C0.85%2C0.34%2C1.12l6.5%2C5C7.57%2C15.43%2C7.79%2C15.5%2C8%2C15.5s0.43-0.07%2C0.61-0.21l6.5-5C15.45%2C10.03%2C15.58%2C9.58%2C15.45%2C9.18z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px top 50%;
+  background-size: 16px auto;
+  cursor: pointer;
+}
+
+@media (min-width: 640px) {
+  .lang-selector > #lang {
+    margin-top: 0px;
+  }
+}
+
+.lang-selector #lang::-ms-expand {
+  display: none;
+}
+
+.lang-selector #lang:hover {
+  border-color: #aaa;
+  color: white;
+  background-image:
+    url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%20width%3D%2216%22%20height%3D%2216%22%3E%3Cg%20fill%3D%22%23aaa%22%3E%3Cpath%20d%3D%22M15.11%2C5.71l-6.5-5c-0.36-0.28-0.86-0.28-1.22%2C0l-6.5%2C5C0.55%2C5.97%2C0.42%2C6.42%2C0.55%2C6.82C0.69%2C7.23%2C1.07%2C7.5%2C1.5%2C7.5h13c0.43%2C0%2C0.81-0.27%2C0.95-0.68C15.58%2C6.42%2C15.45%2C5.97%2C15.11%2C5.71z%22%2F%3E%3Cpath%20d%3D%22M15.45%2C9.18C15.31%2C8.77%2C14.93%2C8.5%2C14.5%2C8.5h-13c-0.43%2C0-0.81%2C0.27-0.95%2C0.68s0%2C0.85%2C0.34%2C1.12l6.5%2C5C7.57%2C15.43%2C7.79%2C15.5%2C8%2C15.5s0.43-0.07%2C0.61-0.21l6.5-5C15.45%2C10.03%2C15.58%2C9.58%2C15.45%2C9.18z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+}
+
+.lang-selector #lang:focus {
+  border-color: #ccc;
+  color: white;
+  outline: none;
+  background-image:
+    url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%20width%3D%2216%22%20height%3D%2216%22%3E%3Cg%20fill%3D%22%23ccc%22%3E%3Cpath%20d%3D%22M15.11%2C5.71l-6.5-5c-0.36-0.28-0.86-0.28-1.22%2C0l-6.5%2C5C0.55%2C5.97%2C0.42%2C6.42%2C0.55%2C6.82C0.69%2C7.23%2C1.07%2C7.5%2C1.5%2C7.5h13c0.43%2C0%2C0.81-0.27%2C0.95-0.68C15.58%2C6.42%2C15.45%2C5.97%2C15.11%2C5.71z%22%2F%3E%3Cpath%20d%3D%22M15.45%2C9.18C15.31%2C8.77%2C14.93%2C8.5%2C14.5%2C8.5h-13c-0.43%2C0-0.81%2C0.27-0.95%2C0.68s0%2C0.85%2C0.34%2C1.12l6.5%2C5C7.57%2C15.43%2C7.79%2C15.5%2C8%2C15.5s0.43-0.07%2C0.61-0.21l6.5-5C15.45%2C10.03%2C15.58%2C9.58%2C15.45%2C9.18z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+}
+
+.lang-selector #lang option {
+  font-weight: normal;
+  /* The following seems to be needed for IE */
+  color: hsl(106.8, 17%, 16.1%);
+}
+
+.lang-selector .go {
+  margin-left: 10px;
+  background: #aaa;
+  border: 1px dotted transparent;
+  border-radius: 5px;
+  line-height: 1.3;
+  padding: 5px 10px;
+}
+
+.lang-selector .go:hover {
+  background: #ccc;
+}
+
+.lang-selector .go:focus {
+  background: #ddd;
+}
+
+</style>
+
+<header>
+  <div class="logo-row constrain-width">
+    <svg viewBox="0 0 559.6 120.8" class=logo role="img"
+      aria-label="birchill" aria-roledescription="logo">
+      <path fill="#fff" role="presentation" d="M104.8 55l-.4-.1c-.4-.2-.8-.7-.8-1.2V21.2a1.2 1.2 0 0 1 1.2-1.2c.3 0 .7.1 1 .4A60 60 0 0 1 117 38.9c.1.4 0 .9-.2 1.2l-11 14.3c-.3.4-.6.5-1 .5zM64.9 120.8a1.2 1.2 0 0 1-1.2-1.2c-.6-23.4-2.7-65-9.9-80.7v-.7a168 168 0 0 0 2.9-27.8V1.3c0-.7.5-1.2 1.1-1.2a49.4 49.4 0 0 1 13.3.8c.5.1 1 .6 1 1.2v27.6c0 26.8 2.7 61 7 87.2.1.6-.2 1.1-.8 1.3a60.2 60.2 0 0 1-13.3 2.5h-.1zM87.2 114.6c-.2 0-.4 0-.6-.2-.3-.1-.5-.5-.6-.8a558.1 558.1 0 0 1-5.5-51.7c2.6-18.2 8-29.7 13.6-39.4a1.2 1.2 0 0 1 1.3-.6c.5.2 1 .6 1 1.2v85.4c0 .4-.3.8-.6 1a60.7 60.7 0 0 1-8.6 5zM32.4 87.1c-.3 0-.7-.1-.9-.3a78 78 0 0 1-13.2-22.6V17.7a1.2 1.2 0 0 1 1.4-1.1c.5 0 .8.4.9.8l5.9 20c4.6 15.7 7 32 7 48.5 0 .5-.2 1-.7 1.2h-.4zM80.6 31.6h-.3c-.5-.1-1-.6-1-1.2V4.7A1.2 1.2 0 0 1 81 3.6C84.9 5 88.6 6.8 92.2 9c.5.3.7 1 .4 1.6l-1.3 2.2c-3 5.1-6.5 11-9.6 18.1-.2.5-.7.7-1.1.7zM104.8 101l-.4-.1c-.5-.2-.8-.7-.8-1.2v-30c0-.3.1-.6.3-.8L118 50.5a1.2 1.2 0 0 1 1.2-.5c.5.2.8.5.9 1a61.2 61.2 0 0 1-14.5 49.5c-.2.3-.5.4-.9.4zM9.7 92.3c-.4 0-.8-.2-1-.6a60.3 60.3 0 0 1 0-62.5 1.2 1.2 0 0 1 2.2.6v61.3c0 .6-.3 1-.8 1.2h-.4zM32.4 113.8l-.6-.1a60.8 60.8 0 0 1-13.2-9.6c-.2-.2-.4-.6-.4-.9V85a1.2 1.2 0 0 1 1.2-1.1c.4 0 .8.1 1 .5 4 5.9 8.2 10.3 12.6 13.2.4.2.6.6.6 1v14c0 .5-.3.9-.6 1-.2.2-.4.2-.6.2zM40 60.8c-.6 0-1-.5-1.1-1-1.3-8.3-3-16.5-5.4-24.5l-7-23.8c-.2-.5 0-1 .4-1.4a59.7 59.7 0 0 1 21.3-8.8c.2 0 .5 0 .7.3.3.2.5.5.5.9v8c0 13-3.3 32.8-8.2 49.4-.2.5-.6.9-1.2.9zM55 120.7a60 60 0 0 1-13.3-2.8c-.5-.1-.8-.6-.8-1.1v-30a187.1 187.1 0 0 0 0-5.6 123 123 0 0 0 8.3-22.8 1.2 1.2 0 0 1 2.3.1 518 518 0 0 1 4.9 61c0 .3-.2.6-.4.8-.2.3-.5.4-.8.4H55zM180.6 95A19.3 19.3 0 0 1 170 84a23.9 23.9 0 0 1 4.1-23.7c1.8-2 3.9-3.4 6.3-4.5 2.5-1.1 5.3-1.7 8.3-1.7a20 20 0 0 1 14.6 6.1c1.8 1.9 3.2 4.1 4.1 6.7 1 2.7 1.4 5.5 1.4 8.5s-.4 5.9-1.4 8.5a19.2 19.2 0 0 1-18.7 12.7c-3 0-5.6-.5-8.1-1.6m-24.8-81.3c-1.4 1.1-2 2.8-2 5.2v53.4c0 6.3.8 11.9 2.6 16.6a30.2 30.2 0 0 0 18.5 18.8 41 41 0 0 0 28.3-.3 32 32 0 0 0 18.5-18.1c1.7-4.3 2.5-9 2.5-13.9 0-5-.8-9.7-2.5-13.9a31.6 31.6 0 0 0-17.6-18.1 33.9 33.9 0 0 0-26.5.4c-3.8 2-6.8 4.3-9 7V13.5l-2.6-.8c-1.3-.4-2.7-.6-4.3-.6-2.5 0-4.5.6-5.9 1.7m83.9 30.6c-1.4 1-2.1 2.9-2.1 5.3v58.6h14.8V44.1l-2.6-.8a15 15 0 0 0-4.3-.6c-2.5 0-4.4.5-5.8 1.6m-1-28.4a8.7 8.7 0 0 0-2.7 6.4c0 2.5.9 4.7 2.6 6.4a8.7 8.7 0 0 0 6.4 2.6c2.5 0 4.7-.9 6.4-2.6a8.7 8.7 0 0 0 2.6-6.4c0-2.5-.8-4.7-2.6-6.4a8.7 8.7 0 0 0-6.4-2.6c-2.5 0-4.6.9-6.4 2.6m37.2 31.5c-5 4.4-7.4 10.6-7.4 18.6v42.2h14.9V70.3c0-10.7 5-16.1 15.2-16.1a27.6 27.6 0 0 1 13 2.8c.5-.3 1.2-1.2 2-2.6a8.3 8.3 0 0 0 1.2-4.3c0-3.1-1.7-5.5-5.1-7a33.4 33.4 0 0 0-13.4-2.3c-8.7 0-15.5 2.2-20.4 6.6m64.7-4.3a31 31 0 0 0-19 17.7 38 38 0 0 0-2.7 15c0 5.5 1 10.4 2.8 14.7a31.1 31.1 0 0 0 18.9 17.3 48.5 48.5 0 0 0 34-2.2c1.5-.7 2.8-1.4 3.8-2.1l-6.2-11.1c-1 .6-2.8 1.5-5.5 2.7a26.4 26.4 0 0 1-10.5 1.7c-3 0-5.9-.4-8.5-1.2A17.7 17.7 0 0 1 336 85.1c-1.1-2.7-1.7-6-1.7-9.8 0-3.7.6-6.8 1.6-9.5A17.7 17.7 0 0 1 347 55.2c2.6-.9 5.4-1.3 8.3-1.3a26.4 26.4 0 0 1 17.8 6.3c1-.8 2.1-2 3.3-3.4 1.2-1.5 1.8-3.1 1.8-4.9 0-1.3-.4-2.6-1.3-3.9a11 11 0 0 0-4-3.5c-1.9-1-4.3-2-7.3-2.6a49.4 49.4 0 0 0-25 1.2m48.3-29.4c-1.4 1.1-2.1 2.9-2.1 5.2v89.3h14.9V73.1a20 20 0 0 1 4.5-13.6c3-3.5 7.5-5.2 13.4-5.2 5.8 0 10 1.5 12.3 4.4 2.4 3 3.6 7.3 3.6 13v36.5h14.9V67.3c0-4.4-.7-8.3-2-11.6-1.3-3.3-3.2-6-5.6-8.3a24.2 24.2 0 0 0-8.7-5c-3.3-1.1-7-1.7-11-1.7-5.6 0-10 1-13.6 2.7-3.5 1.9-6 3.8-7.8 6v-36l-2.6-.8c-1.3-.4-2.8-.6-4.3-.6-2.6 0-4.5.6-6 1.7m79.5 30.6c-1.4 1-2.1 2.9-2.1 5.3v58.6H481V44.1l-2.7-.8a15 15 0 0 0-4.3-.6c-2.5 0-4.4.5-5.8 1.6m-1-28.4a8.7 8.7 0 0 0-2.7 6.4c0 2.5.9 4.7 2.6 6.4a8.7 8.7 0 0 0 6.4 2.6c2.5 0 4.7-.9 6.4-2.6a8.7 8.7 0 0 0 2.6-6.4c0-2.5-.9-4.7-2.6-6.4a8.7 8.7 0 0 0-6.4-2.6c-2.5 0-4.6.9-6.4 2.6m32.5-2.2c-1.4 1.1-2 2.9-2 5.2v89.3h14.8V13.4l-2.6-.8c-1.3-.4-2.7-.6-4.3-.6-2.5 0-4.5.6-5.9 1.7M544 38.4v-25l-2.6-.8c-1.3-.4-2.8-.6-4.3-.6-2.6 0-4.5.6-6 1.7-1.3 1.1-2 2.9-2 5.2v89.3H544V53l14.7-28.3L544 38.4z"></path>
+      <defs>
+        <linearGradient id="grad1" x1="-0.6" x2="1" y1="0" y2="0" gradientUnits="objectBoundingBox">
+          <stop offset="0" stop-color="#57595b"></stop>
+          <stop offset="1" stop-color="#fff" stop-opacity="0.5"></stop>
+        </linearGradient>
+      </defs>
+      <path fill="url(#grad1)" role="presentation" d="M177.7 43.8c-3.9 2-6.9 4.3-9 7v22a22.9 22.9 0 0 1 5.4-12.5c1.8-2 3.9-3.4 6.4-4.5a20.4 20.4 0 0 1 12.3-1.3V41h-2c-5 0-9.3 1-13.2 2.9"></path>
+      <path fill="url(#grad1)" role="presentation" d="M401.7 31.4v46V73a20 20 0 0 1 4.5-13.7c3-3.4 7.4-5.1 13.4-5.1 2.3 0 4.4.2 6.2.7V40.8H423c-5.6 0-10.1.8-13.6 2.6-3.5 1.9-6 3.8-7.8 6v-18z"></path>
+    </svg>
+  </div>
+</header>
+
+<main>
+
+<h1 class=constrain-width><span
+    class=line>building the <strong>Web</strong></span>
+  <span class=line>learning the <strong>world</strong></span></h1>
+
+<section class=highlight>
+  <section class="activities constrain-width">
+    <section class=activity>
+      <svg class=icon role=presentation viewBox="-949 951 100 100">
+        <path d="M-893.6 1038.6l-1.9-5.4c-1.4 2.3-3 4.4-4.7 6.4l-.4.5-2.1.1h-2.1l-.4-.5a52.7 52.7 0 0 1-9.8-16.8 62.8 62.8 0 0 1 15.7-1.1l-1.9-5.6h-1.3c-4.9 0-9.6.5-14.1 1.4-1.2-4.5-2-9.3-2.2-14.4h13.1l-.9-2.6c-.3-.9-.5-1.9-.5-2.9H-919c.2-5 .9-9.8 2.2-14.4a71.7 71.7 0 0 0 28.2 0c.9 3.2 1.5 6.6 1.9 10.1l5.7 2c-.3-4.6-1.1-9.1-2.2-13.4 4.3-1.2 8.4-2.9 12.2-4.9l.4-.2c4.3 5.9 7.1 13 7.6 20.8h-11.3l16.1 5.6.7.3.1-3.2a45.3 45.3 0 1 0-31.5 43 8.2 8.2 0 0 1-4.7-4.8zm19.2-66l-.4.2a56.6 56.6 0 0 1-10.2 3.9 58.7 58.7 0 0 0-7.3-14.1l-.4-.6a39.7 39.7 0 0 1 18.3 10.6zm-30.4-11.8l2.1-.1 2.1.1.4.5a52.7 52.7 0 0 1 9.8 16.8 62.8 62.8 0 0 1-24.8 0 54.6 54.6 0 0 1 9.8-16.8l.6-.5zm-8 1.2l-.4.6c-3 4.2-5.4 9-7.3 14.2-3.6-1-7-2.3-10.2-3.9l-.4-.2c5-5.1 11.3-8.9 18.3-10.7zm-21.9 14.9l.4.2a69 69 0 0 0 12.2 4.9c-1.3 5-2.2 10.2-2.3 15.7h-17.9c.5-7.8 3.3-14.9 7.6-20.8zm0 47c-4.3-5.9-7.1-13-7.6-20.7h17.9c.2 5.4 1 10.7 2.3 15.7a62.2 62.2 0 0 0-12.6 5zm3.6 4.3l.4-.2c3.2-1.6 6.6-2.9 10.2-3.9 1.9 5.2 4.3 9.9 7.3 14.2l.4.6c-7-2-13.3-5.7-18.3-10.7z"></path>
+        <path d="M-850.6 1036l-18.6-18.6 9.1-4.6c1.5-.8 1.4-3-.2-3.6l-38-13.2a2 2 0 0 0-2.5 2.5l13.2 38a2 2 0 0 0 3.6.2l4.6-9.1 18.6 18.6c.8.8 2 .8 2.7 0l7.5-7.5c.8-.7.8-1.9 0-2.7z"></path>
+      </svg>
+      <h2>building the <strong>Web</strong></h2>
+      <p>
+        We write C++ and Rust code that makes Web browsers,
+        specifications that define how the Web works,
+        browser tools used by Web developers,
+        and apps that harness the unique capabilities of the Web.
+      </p>
+    </section>
+
+    <hr>
+
+    <section class=activity>
+      <svg class=icon role=presentation viewBox="0 0 164 164">
+        <path fill-rule="evenodd" d="M72.52 151.05a71.57 71.57 0 1 1 74.74-73.09 33.82 33.82 0 0 0-8.84-9.1 63.22 63.22 0 0 0-17.67-34.35c-24.74-24.74-65.35-24.74-90.1 0-24.73 24.74-24.73 65.35 0 90.1a63.49 63.49 0 0 0 44.07 18.54 62.4 62.4 0 0 0-2.2 7.9zm61.44-31.28a28 28 0 0 0 13.62-23.6c.17-15.58-12.71-28.36-28.77-28.53-16.07-.18-29.23 12.31-29.4 27.9a28.04 28.04 0 0 0 13.72 24.27c-17.12 6.8-24.46 21.4-26.58 37.52h84c-2-16.15-9.32-30.74-26.59-37.56zm-58.25 8.9c-2.18 0-4.33-.15-6.44-.43-3-6.01-5.55-12.02-7.6-18.03h26.06c-1-2.02-1.79-4.15-2.35-6.37h-25.7a103.5 103.5 0 0 1-3.75-21.1h31.2c1-2.27 2.24-4.4 3.7-6.37H55.72a88 88 0 0 1 2.58-21.1h34.82a87.88 87.88 0 0 1 2.42 15.97 34.16 34.16 0 0 1 5.18-3.79 95.54 95.54 0 0 0-2.2-12.18h19.88a48.82 48.82 0 0 1 3.47 7.5c2.02.2 4 .56 5.9 1.08a53.86 53.86 0 0 0-13.57-22.78c-21.14-21.14-55.84-21.14-76.98 0-21.14 21.13-21.14 55.83 0 76.97a54.36 54.36 0 0 0 41.87 15.75 43.8 43.8 0 0 1 13.4-14.09l.66-1.62c-1.59-1.72-3-3.6-4.2-5.62-1.9 5.26-4.18 10.52-6.8 15.78-2.12.28-4.26.42-6.44.42zm-13.6-1.92a131.81 131.81 0 0 1-6.72-16.54H37.34a49.16 49.16 0 0 0 24.76 16.54zM33 103.85h20.5a102.25 102.25 0 0 1-3.31-21.11H26.7a48.79 48.79 0 0 0 6.32 21.1zm-6.3-27.48h23.4a94.74 94.74 0 0 1 2.78-21.1H33.02a48.82 48.82 0 0 0-6.31 21.1zM37.34 48.9H54.7c1.74-5.44 3.98-10.9 6.74-16.34A49.17 49.17 0 0 0 37.34 48.9zm30.68-17.85a100 100 0 0 0-7.9 17.85H91.3a100.08 100.08 0 0 0-7.9-17.85 49.36 49.36 0 0 0-15.37 0zm21.96 1.5c2.76 5.46 5 10.9 6.74 16.35h17.35a49.17 49.17 0 0 0-24.1-16.34z" clip-rule="evenodd"></path>
+      </svg>
+      <h2>learning the <strong>world</strong></h2>
+      <p>
+        We create apps to help individuals engage with other
+        cultures and with the technology that shapes our world.
+        We amplify the contributions of other Asian organizations
+        to the Web to further realize its potential as a truly
+        global platform.
+      </p>
+    </section>
+  </section>
+</section>
+
+<section class="about constrain-width">
+  <h2>about <strong>birchill</strong></h2>
+  <p>
+    Founded in June 2019 in Tokyo, Japan
+    by current and former Web browser developers,
+    we continue to build the Web from Asia.
+  </p>
+  <p>
+    Our company name and logo comes from
+    the image of white birch trees on a hill.
+    Birch trees in Japan are said to represent
+    light, abundance, patience, and kindness.
+    Through our deep experience we seek to be
+    a calm and mature presence in an industry
+    of rapid change.
+  </p>
+</section>
+
+</main>
+
+<footer>
+  <div class="company-info constrain-width">
+    <div role=grid>
+      <div role=row>
+        <div role=gridcell class=label id=company-name-label>Company name</div>
+        <div role=gridcell class=value
+          aria-labelledby=company-name-label>Birchill, Inc.</div>
+      </div>
+      <div role=row>
+        <div role=gridcell class=label id=address-label>Address</div>
+        <div role=gridcell class=value
+          aria-labelledby=address-label>
+          <address><a href="https://goo.gl/maps/g3DwoACEXZxaThoo6"
+                      target="_blank" rel="noopener"><span
+                  class=address-line>Marunouchi Kitaguchi Building 9F</span>
+            <span class=address-line>Marunouchi 1-6-5</span>
+            <span class=address-line>Chiyoda-ku Tokyo 100-0005</span></a>
+          </address>
+        </div>
+      </div>
+      <div role=row>
+        <div role=gridcell class=label
+          id=representative-label>Representative</div>
+        <div role=gridcell class=value
+          aria-labelledby=represenatitive-label>Brian Birtles</div>
+      </div>
+      <div role=row>
+        <div role=gridcell class=label id=contact-label>Contact</div>
+        <div role=gridcell class=value aria-labelledby=contact-label><a
+            href=mailto:info@birchill.co.jp>info@birchill.co.jp</a></div>
+      </div>
+    </div>
+  </div>
+
+  <nav class=constrain-width>
+    <form class=lang-selector method="get" id=langForm action="/">
+      <label for=lang class=label>
+        <svg viewBox="0 0 24 24" class=lang-icon fill=currentColor
+          role=presentation aria-label="Language">
+          <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 19c-.8 0-1.8-1.5-2.4-4h4.8c-.6 2.5-1.6 4-2.4 4zm-2.7-5c-.1-1-.3-2.2-.3-3.5h6c0 1.3-.2 2.5-.3 3.5H9.3zM3 12.5h5c0 1.2.1 2.4.3 3.5H4a9 9 0 0 1-.9-3.5zM12 3c.8 0 1.8 1.5 2.4 4H9.6c.6-2.5 1.6-4 2.4-4zm2.7 5c.1 1 .3 2.2.3 3.5H9c0-1.3.2-2.5.3-3.5h5.4zM8 11.5H3A9 9 0 0 1 4 8h4.3c-.2 1-.3 2.3-.3 3.5zm8 1h5a9 9 0 0 1-1 3.5h-4.3c.2-1 .3-2.3.3-3.5zm0-1c0-1.2-.1-2.4-.3-3.5H20a9 9 0 0 1 .9 3.5h-5zM19.5 7h-4c-.4-1.6-1-3-1.6-3.8A9 9 0 0 1 19.5 7zM10 3.2c-.7.9-1.2 2.2-1.6 3.8h-4a9 9 0 0 1 5.6-3.8zM4.5 17h4c.4 1.6 1 3 1.6 3.8A9 9 0 0 1 4.5 17zm9.4 3.8c.7-.9 1.2-2.2 1.6-3.8h4a9 9 0 0 1-5.6 3.8z"></path>
+        </svg>
+        <span class=text-label>Language</span>
+      </label>
+      <select name=lang id=lang>
+        <option value=en selected>English</option>
+        <option value=ja lang=ja>日本語</option>
+      </select>
+      <input type="submit" value="Go" class=go id=go>
+    </form>
+  </nav>
+
+</footer>
+
+<script>
+document.getElementById('lang').onchange = function (evt) {
+  langForm.submit();
+  evt.preventDefault();
+};
+// If we have script support (and the above didn't throw any errors), we don't
+// need the Go button anymore.
+document.getElementById('go').style.display = 'none';
+</script>
+
+</html>
