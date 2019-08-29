@@ -2,6 +2,7 @@
   Referrer-Policy: no-referrer
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
+/*.html
   X-XSS-Protection: 1; mode=block
 /*.svg
   Content-Type: image/svg+xml; charset=utf-8
