@@ -2,8 +2,10 @@
   Referrer-Policy: no-referrer
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
-/en/*.html
-  X-XSS-Protection: 1; mode=block
   Content-Security-Policy: default-src 'none'; img-src 'self' https://*.typekit.net; script-src 'unsafe-inline' 'self' https://*.typekit.net; style-src 'unsafe-inline' 'self'; connect-src https:; font-src https://*.typekit.net; frame-ancestors 'none'
+/ja/
+  X-XSS-Protection: 1; mode=block
+/en/
+  X-XSS-Protection: 1; mode=block
 /*.svg
   Content-Type: image/svg+xml; charset=utf-8
