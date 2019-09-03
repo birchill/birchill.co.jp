@@ -1,0 +1,10 @@
+# Make birchill.co.jp the canonical domain
+https://birchill.jp/* https://birchill.co.jp/:splat 301!
+http://birchill.jp/* https://birchill.co.jp/:splat 301!
+
+# If the user uses the language selector, redirect accordingly
+/ lang=:lang /:lang/ 301
+
+# Otherwise, if they land on the root URL, redirect based on language preference
+/  /ja/  302  Language=ja
+/  /en/  302
