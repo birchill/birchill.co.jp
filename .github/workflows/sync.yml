@@ -9,15 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - uses: actions/setup-node@v1
-      with:
-        node-version: '10.x'
-    - name: yarn install, test
-      run: |
-        yarn install
-        yarn test
-      env:
-        CI: true
     - uses: jakejarvis/s3-sync-action@master
       with:
         args: --delete --follow-symlinks --exclude '.git/*' --exclude '.github/*' --exclude '_redirects' --exclude '_headers'
