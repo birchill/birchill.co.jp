@@ -1,0 +1,28 @@
+name: Sync to S3
+on:
+  push:
+    branches:
+      - release
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+    - name: yarn install, test
+      run: |
+        yarn install
+        yarn test
+      env:
+        CI: true
+    - uses: jakejarvis/s3-sync-action@master
+      with:
+        args: --delete --follow-symlinks --exclude '.git/*' --exclude '.github/*' --exclude '_redirects' --exclude '_headers'
+      env:
+        AWS_REGION: 'ap-northeast-1'
+        AWS_S3_BUCKET: 'birchillcojp'
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
